@@ -69,7 +69,6 @@ function Beta() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        backgroundColor: "#000",
                     }}
                 >
                     <Turnstile
@@ -96,7 +95,6 @@ function Beta() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        backgroundColor: "#000",
                     }}
                 >
                     <button onClick={() => setPlaying(true)} style={{padding: "20px", fontSize: "20px", cursor: "pointer"}} />

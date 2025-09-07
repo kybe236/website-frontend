@@ -8,7 +8,17 @@ import Beta from "./paths/beta/Beta.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <div className="center">
+        <div
+            className="center"
+            style={{
+                backgroundImage: `url('/img.png')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                width: "100vw",
+                height: "100vh",
+            }}
+        >
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Root/>}/>
