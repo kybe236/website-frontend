@@ -8,29 +8,35 @@ function Beta() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (playing && videoRef.current) {
-            videoRef.current.play().catch(err => {
-                console.error("Video play failed:", err);
-                setPlaying(false)
-            });
+        if (!playing || !videoRef.current) return;
+
+        (async () => {
+            setCaptchaPassed(true);
+            try {
+                await videoRef.current!.play();
+            } catch (e) {
+                setPlaying(false);
+            }
 
             const elem = containerRef.current;
             if (elem) {
                 if (elem.requestFullscreen) {
-                    elem.requestFullscreen().catch(console.error);
+                    await elem.requestFullscreen();
                 } else if ('webkitRequestFullscreen' in elem) {
-                    (elem as any).webkitRequestFullscreen();
+                    await (elem as any).webkitRequestFullscreen();
                 }
             }
+
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
+            // @ts-expect-error
             if (screen.orientation && screen.orientation.lock) {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                screen.orientation.lock("landscape").catch(err => console.error(err));
+                // @ts-expect-error
+                await screen.orientation.lock("landscape");
             }
-        }
+        })();
     }, [playing]);
+
 
     return (
         <div
