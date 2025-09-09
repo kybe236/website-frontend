@@ -24,9 +24,6 @@ function Root() {
                     <a href="https://github.com/kybe236" className="nav-link" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </a>
-                    <a href="https://kybe.xyz/dc" className="nav-link" target="_blank" rel="noopener noreferrer">
-                        Discord
-                    </a>
                     <a href="https://github.com/kybe236/website-frontend" className="nav-link" target="_blank" rel="noopener noreferrer">
                         Source Code
                     </a>
