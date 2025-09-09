@@ -3,10 +3,10 @@ import {Link} from "react-router";
 
 function Root() {
     return (
-        <div className="main-container">
+        <div className="main-container" style={{width: "80%"}}>
             <div className="split-container">
                 <div className="left-side">
-                    <h2>2kybe3</h2>
+                    <h1>2kybe3</h1>
                     <ul>
                         <li>I'm 16y old</li>
                         <li>I use arch btw</li>
@@ -20,6 +20,7 @@ function Root() {
                     <Link to="/beta" className="nav-link">Beta</Link>
                     <Link to="/mcdimensions" className="nav-link">MCDimensions</Link>
                     <Link to="/dotfiles" className="nav-link">DotFiles</Link>
+                    <Link to="/contact" className="nav-link">Contact</Link>
                     <a href="https://github.com/kybe236" className="nav-link" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </a>

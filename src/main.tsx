@@ -7,6 +7,7 @@ import Crypto from "./paths/crypto/Crypto.tsx";
 import Beta from "./paths/beta/Beta.tsx";
 import MCDimensions from "./paths/mcmath/MCDimensions.tsx";
 import DotFiles from "./paths/dotfiles/DotFiles.tsx";
+import Contact from "./paths/contact/Contact.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
                     <Route path="/beta" element={<Beta />} />
                     <Route path="/mcdimensions" element={<MCDimensions />} />
                     <Route path="/dotfiles" element={<DotFiles />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
             </BrowserRouter>
         </div>
