@@ -58,7 +58,7 @@ function Beta() {
                 />
             )}
 
-            {!playing && (
+            {!captchaPassed && !playing && (
                 <div
                     style={{
                         position: "absolute",
