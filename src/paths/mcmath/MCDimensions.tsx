@@ -32,9 +32,8 @@ function MCDimensions() {
     const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
     const copyToClipboard = (coords: Coords) => {
-        const text = `X: ${formatCoord(coords.x)}, Z: ${formatCoord(coords.z)}`;
+        const text = `X: ${formatCoord(coords.x)}, Z: ${formatCoord(coords.z)}, Distance: ${getDistance(coords)}`;
         navigator.clipboard.writeText(text)
-            .then(() => alert(`Copied: ${text}`))
             .catch(err => console.error("Failed to copy: ", err));
     };
 
