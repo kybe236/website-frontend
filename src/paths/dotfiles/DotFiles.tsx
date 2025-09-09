@@ -5,18 +5,32 @@ const images = ["/dot1.png", "/dot2.png", "/dot3.png"];
 
 function DotFiles() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [autoScroll, setAutoScroll] = useState(true);
     const containerRef = useRef<HTMLDivElement>(null);
+    const intervalRef = useRef<number | null>(null);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % images.length);
-        }, 5000);
+        if (autoScroll) {
+            intervalRef.current = window.setInterval(() => {
+                setCurrentIndex((prev) => (prev + 1) % images.length);
+            }, 5000);
+        }
 
-        return () => clearInterval(interval);
-    }, []);
+        return () => {
+            if (intervalRef.current !== null) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, [autoScroll]);
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!containerRef.current) return;
+
+        setAutoScroll(false);
+        if (intervalRef.current !== null) {
+            clearInterval(intervalRef.current);
+        }
+
         const { left, width } = containerRef.current.getBoundingClientRect();
         const clickX = e.clientX - left;
 
