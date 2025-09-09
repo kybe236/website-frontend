@@ -1,0 +1,89 @@
+.coordinates-container input {
+    background-color: var(--input-box-color);
+    border: 1px var(--text-color) solid;
+    color: var(--text-color);
+
+    padding: 5px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.coordinates-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.coordinates-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dimension-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.dimension-container select {
+    padding: 6px 8px;
+    border: 1px solid var(--text-color);
+    background-color: var(--input-box-color, #1b1b1b);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.separator {
+    margin: 20px 0;
+    border: none;
+    height: 1px;
+    background-color: var(--text-color, #fff);
+    opacity: 0.3;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.results-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.result-card {
+    background-color: var(--input-box-color, #1b1b1b);
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.result-card strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+
+
+/* Hide up and down arrow */
+.coordinates-container input[type="number"]::-webkit-inner-spin-button,
+.coordinates-container input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+}
+.coordinates-container input[type="number"] {
+    -moz-appearance: textfield;
+}

@@ -18,6 +18,7 @@ function Root() {
                 <div className="right-side">
                     <Link to="/crypto" className="nav-link">KybeCrypt</Link>
                     <Link to="/beta" className="nav-link">Beta</Link>
+                    <Link to="/mcdimensions" className="nav-link">MCDimensions</Link>
                     <a href="https://github.com/kybe236" className="nav-link" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </a>

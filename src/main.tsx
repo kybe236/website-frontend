@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router";
 import Root from "./paths/root/Root.tsx";
 import Crypto from "./paths/crypto/Crypto.tsx";
 import Beta from "./paths/beta/Beta.tsx";
+import MCDimensions from "./paths/mcmath/MCDimensions.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')!).render(
                     <Route path="/" element={<Root/>}/>
                     <Route path="/crypto" element={<Crypto/>}/>
                     <Route path="/beta" element={<Beta />} />
+                    <Route path="/mcdimensions" element={<MCDimensions />} />
                 </Routes>
             </BrowserRouter>
         </div>
