@@ -40,7 +40,7 @@ function MCDimensions() {
 
     return (
         <div className="main-container">
-            <h1>MCMath</h1>
+            <h1>MCDimensions</h1>
 
             <div className="coordinates-container">
                 <div className="coordinates-input">
