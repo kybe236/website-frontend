@@ -28,7 +28,13 @@ function Idiot() {
         if (!playing) {
             startExperience();
         }
-        if (window.location.search.includes("v2v")) {
+        const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
+        if (isMobile) {
+            console.log("User is likely on a phone");
+        }
+
+        if (window.location.search.includes("v2v") && isMobile) {
             while (true) {
                 if ((screen.orientation as any)?.lock) {
                     (screen.orientation as any).lock("landscape")
