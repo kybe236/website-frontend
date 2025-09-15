@@ -5,7 +5,32 @@ function Idiot() {
     const [playing, setPlaying] = useState(false);
     const audioRef = useRef<HTMLAudioElement>(null);
 
-    const startExperience = useCallback(() => {
+    const changeTitle = (title: string) => {
+        document.title = title;
+    };
+
+    const openWindow = (url: string) => {
+        const fullUrl = `${url}?ready`;
+        window.open(
+            fullUrl,
+            "_blank",
+            'menubar=no,status=no,toolbar=no,resizable=no,width=357,height=330,titlebar=no,alwaysRaised=yes'
+        );
+    };
+
+    const procreate = () => {
+        changeTitle("Idiot!");
+        openWindow("beta");
+    };
+
+    const handleActivation = useCallback(() => {
+        if (!playing) {
+            startExperience();
+        }
+        procreate();
+    }, [playing, procreate]);
+
+    const startExperience = () => {
         setPlaying(true);
 
         if (audioRef.current) {
@@ -18,20 +43,20 @@ function Idiot() {
         else if ((elem as any).webkitRequestFullscreen) (elem as any).webkitRequestFullscreen();
         else if ((elem as any).msRequestFullscreen) (elem as any).msRequestFullscreen();
 
-        if ('orientation' in screen && 'lock' in screen.orientation) {
-            (screen.orientation as any).lock("landscape").catch(() => console.log("Orientation lock failed"));
+        if ((screen.orientation as any)?.lock) {
+            (screen.orientation as any).lock("landscape")
+                .catch(() => console.log("Orientation lock failed"));
         }
 
-        document.title = "Idiot!";
-    }, []);
-
-    const handleActivation = useCallback(() => {
-        if (!playing) startExperience();
-    }, [playing, startExperience]);
-
-    useEffect(() => {
         window.addEventListener("keydown", handleActivation);
         window.addEventListener("click", handleActivation);
+    };
+
+    useEffect(() => {
+        if (window.location.search.includes("ready")) {
+            window.addEventListener("keydown", handleActivation);
+            window.addEventListener("click", handleActivation);
+        }
 
         return () => {
             window.removeEventListener("keydown", handleActivation);
