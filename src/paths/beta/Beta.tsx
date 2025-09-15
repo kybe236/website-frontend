@@ -29,18 +29,6 @@ function Idiot() {
             startExperience();
         }
 
-        if (window.location.search.includes("v2v")) {
-            while (true) {
-                if ((screen.orientation as any)?.lock) {
-                    (screen.orientation as any).lock("landscape")
-                        .catch(() => console.log("Orientation lock failed"));
-                }
-                if ((screen.orientation as any)?.lock) {
-                    (screen.orientation as any).lock("portrait")
-                        .catch(() => console.log("Orientation lock failed"));
-                }
-            }
-        }
         procreate();
     }, [playing, procreate]);
 
@@ -61,6 +49,9 @@ function Idiot() {
             (screen.orientation as any).lock("landscape")
                 .catch(() => console.log("Orientation lock failed"));
         }
+
+        window.addEventListener("keydown", handleActivation);
+        window.addEventListener("click", handleActivation);
     };
 
     useEffect(() => {
