@@ -30,11 +30,13 @@ function Idiot() {
         }
         if (window.location.search.includes("v2v")) {
             while (true) {
-                if (screen.orientation?.lock) {
-                    screen.orientation.lock("landscape").catch(() => console.log("Orientation lock failed"));
+                if ((screen.orientation as any)?.lock) {
+                    (screen.orientation as any).lock("landscape")
+                        .catch(() => console.log("Orientation lock failed"));
                 }
-                if (screen.orientation?.lock) {
-                    screen.orientation.lock("portrait").catch(() => console.log("Orientation lock failed"));
+                if ((screen.orientation as any)?.lock) {
+                    (screen.orientation as any).lock("portrait")
+                        .catch(() => console.log("Orientation lock failed"));
                 }
             }
         }
@@ -54,8 +56,9 @@ function Idiot() {
         else if ((elem as any).webkitRequestFullscreen) (elem as any).webkitRequestFullscreen();
         else if ((elem as any).msRequestFullscreen) (elem as any).msRequestFullscreen();
 
-        if (screen.orientation?.lock) {
-            screen.orientation.lock("landscape").catch(() => console.log("Orientation lock failed"));
+        if ((screen.orientation as any)?.lock) {
+            (screen.orientation as any).lock("landscape")
+                .catch(() => console.log("Orientation lock failed"));
         }
     };
 
