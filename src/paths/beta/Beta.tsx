@@ -24,10 +24,10 @@ function Idiot() {
     };
 
     const handleActivation = useCallback(() => {
+        procreate();
         if (!playing) {
             startExperience();
         }
-        procreate();
     }, [playing, procreate]);
 
     const startExperience = () => {
